@@ -77,4 +77,4 @@ jobs:
             --name qemu-cross-${{ matrix.hw_platform }} \
             --mount type=bind,source=${PWD},target=/workspace \
             --workdir /workspace \
-            ${{matrix.hw_platform}}/eclipse-temurin:11-jdk-focal uname -a; ./gradlew --no-daemon -PmaxParallelForks=1 build
+            ${{matrix.hw_platform}}/eclipse-temurin:11-jdk /bin/sh -c "uname -a; ./gradlew --no-daemon -PmaxParallelForks=1 build"
